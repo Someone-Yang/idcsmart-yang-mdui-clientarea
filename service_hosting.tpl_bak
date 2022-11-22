@@ -1,0 +1,119 @@
+<div class="mdui-panel" mdui-panel>
+  <div class="mdui-panel-item">
+    <div class="mdui-panel-item-header">
+      <div class="mdui-panel-item-title">玲行云端虚拟主机</div>
+      <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+    </div>
+    <div class="mdui-panel-item-body">
+      <p>玲行云端虚拟主机是可快速配置的虚拟主机产品。</p>
+      <div class="mdui-panel-item-actions">
+        <button class="mdui-btn mdui-ripple" mdui-panel-item-close>我明白了</button>
+        <button class="mdui-btn mdui-ripple">创建新实例</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mdui-table-fluid">
+  <table class="mdui-table mdui-table-selectable">
+    <thead>
+      <tr>
+        <th>魔方选中</th>
+        <th>产品状态</th>
+        <th>产品内容</th>
+        <th>节点地址</th>
+        <th>到期时间</th>
+        <th>付款项目</th>
+        <th>备注</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      {if $Service.list}
+						{foreach $Service.list as $list}
+							<tr>
+								<td>
+									<div class="custom-control custom-checkbox mb-3">
+										<input type="checkbox" class="custom-control-input row-checkbox" id="customCheck{$list.id}"
+											   data-status="{$list.domainstatus}">
+										<label class="custom-control-label" for="customCheck{$list.id}"></label>
+									</div>
+								</td>
+								<td style="position:relative">
+								    <div class="mdui-chip">
+                                      <span class="mdui-chip-title">{$Lang['domainstatus_select_'.strtolower($list.domainstatus)]}</span>
+                                    </div>
+
+									<div class="dots" id="service{$list.id}" style="display:none" data-toggle="tooltip" data-placement="top"
+										 title="{$Lang.please_wait_a_moment}..." onclick="getSingleStatus('{$list.id}')">
+
+									</div>
+								</td>
+								<td>
+									<div class="mdui-typo-subheading">{$list.productname}</div><br />
+									<div class="mdui-typo-caption">唯一标识符：{$list.domain}</div>
+								</td>
+								<!-- <td>{if $list.dedicatedip}{$list.dedicatedip}{else}-{/if}</td> -->
+
+								<td>
+									{if $list.dedicatedip}
+										{if ($list.assignedips && count($list.assignedips) > 1)}
+											<span data-toggle="popover" data-trigger="hover" title="" data-html="true" data-content="
+											<button type='button' class='btn btn-primary'>{$Lang.copy}</button>
+											{foreach $list.assignedips as $item}
+											<div>{$item}</div>
+											{/foreach}
+										">
+											<span class="iptd" id="ips{$list.id}">{$list.dedicatedip} ({$list.assignedips|count}) </span>
+										</span>
+										{else}
+											<span>{$list.dedicatedip}</span>
+										{/if}
+									{else}
+										-
+									{/if}
+
+								</td>
+								<td>
+									{if $list.cycle_desc != '一次性' && $list.cycle_desc != '免费'}
+										<span>{$list.nextduedate|date="Y-m-d"}</span>
+										{if $list.host_cancel != ''}
+											<span class="bx bxs-error-circle text-danger" data-toggle="popover" data-trigger="hover"
+												  title="{$Lang.disable_and_remove_the_product}" data-html="true"
+												  data-content="{$Lang.cancellation_time}：{$list.host_cancel.type}<br>{$Lang.cancelreason}：{$list.host_cancel.reason}"></span>
+										{/if}
+									{else}-
+									{/if}
+								</td>
+								<td>
+									<div>
+										{if $list.billingcycle != 'free' && $list.billingcycle != 'ontrial'}
+											{$list.price_desc}/{$Lang[$list.billingcycle]}
+										{else}
+											{$Lang[$list.billingcycle]}
+										{/if}
+									</div>
+									<div class="text-black-50">
+										{if $list.initiative_renew && $list.billingcycle != 'free' && $list.billingcycle != 'onetime'}{$Lang.automatic_renewal_of_balance}{/if}
+									</div>
+								</td>
+								<td>{if $list.notes}{$list.notes}{else}-{/if}
+									<i class="bx bx-edit-alt pointer text-primary"
+									   onclick="editNotesHandleClick('{$list.id}', '{$list.notes}')"></i>
+									<!--  data-toggle="modal" data-target="#modifyNotesModal" -->
+								</td>
+								<td>
+									<a href="servicedetail?id={$list.id}" class="mdui-btn mdui-color-theme-accent mdui-ripple">进入管理</a>
+								</td>
+							</tr>
+						{/foreach}
+					{else}
+						<tr>
+							<td colspan="12">
+								<div class="no-data">{$Lang.nothing}</div>
+							</td>
+						</tr>
+					{/if}
+    </tbody>
+  </table>
+</div>
