@@ -84,6 +84,17 @@
                         {else}
                         虚拟主机实例(早期实例)
                         {/if}
+                        
+                        {if $list.safe_pay == '是'}
+                            <button class="mdui-btn mdui-btn-icon mdui-text-color-green" mdui-tooltip="{content: '此产品已启用玲行云端“坏即赔”服务。当实例出现意外事故时，您可以获得最高100倍赔付。'}">
+                              <i class="mdui-icon material-icons">verified_user</i>
+                            </button>
+                        {else}
+                            <button class="mdui-btn mdui-btn-icon mdui-text-color-grey" mdui-tooltip="{content: '未检查到此产品启用玲行云端“坏即赔”权益。但是，您仍然可以享受玲行云端标准 SLA 协议保护。'}">
+                              <i class="mdui-icon material-icons">wb_cloudy</i>
+                            </button>
+                        {/if}
+                       
                     </div>
                     <div class="mdui-card-primary-subtitle mdui-text-truncate">{if $list.notes}{$list.notes}{else}无备注{/if} - {$list.productname}</div>
                   </div>
