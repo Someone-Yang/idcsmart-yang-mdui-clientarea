@@ -265,115 +265,7 @@
 {/if}
 
 <div class="mdui-col-xs-8">
-{if $Userinfo.customs.4.value == '旧版'}
-
-    <div class="mdui-card mdui-p-a-1">
-      <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title">工作台桌面</div>
-        <div class="mdui-card-primary-subtitle">快速导航</div>
-      </div>
-      <div class="mdui-card-content">
-        <div class="mdui-typo-subheading">服务生态</div>
-        <a class="mdui-btn mdui-ripple" href="https://www.incloudify.com/zhcn/">玲行云端官网</a>
-        <div class="mdui-typo-subheading">容器云独立面板</div>
-        <a class="mdui-btn mdui-ripple" href="http://mcsm.incloudify.com/">MCSM 独立面板</a>
-        <a class="mdui-btn mdui-ripple" href="http://ptero.incloudify.com/">翼龙面板</a>
-        <div class="mdui-typo-subheading">其他用户中心</div>
-        <a class="mdui-btn mdui-ripple" href="https://console.incloudify.com/">Consolify 智控</a>
-        <a class="mdui-btn mdui-ripple" href="https://partner.incloudify.com/">玲行云端协作云用户中心</a>
-      </div>
-      <div class="mdui-card-actions">
-        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '自定义视图'}" onclick="mdui.snackbar({message: '魔方控制台暂不支持自定义视图。想要自定义工作台视图？Consolify 将支持！'});">
-          <i class="mdui-icon material-icons">create</i>
-        </button>
-      </div>
-    </div>
-    
-    <br />
-    
-    <div class="mdui-card mdui-p-a-1">
-      <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title">已激活魔方实例</div>
-        <div class="mdui-card-primary-subtitle" id="totalActiveHostLable">此账户于玲行云端智简魔方控制台激活的产品</div>
-      </div>
-      <div class="mdui-card-content">
-      {if $ClientArea.index.host}
-        {foreach $ClientArea.index.host_nav as $list}
-            <a href="service?groupid={$list.id}" class="mdui-btn mdui-btn-raised mdui-ripple">
-              <span>
-                <i class="mdui-icon material-icons">audiotrack</i>
-                {$list.groupname}
-              </span>
-              <span>({$list.count}个实例)</span>
-            </a>
-            <script>totalActiveHost = totalActiveHost + {$list.count};</script>
-        {/foreach}
-        {else}
-        <div class="mdui-typo-caption-opacity">千里之行，始于足下。</div>
-        {/if}
-      
-      </div>
-      <div class="mdui-card-actions">
-        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '有的产品购买后不显示：可能是自动交付出了问题。一般等待片刻即可，您也可以选择发工单要求得到运维团队的帮助。'}">
-          <i class="mdui-icon material-icons">help</i>
-        </button>
-      </div>
-    </div>
-    
-    <br />
-    
-    
-    <div class="mdui-card mdui-p-a-1">
-      <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title">管理魔方实例</div>
-        <div class="mdui-card-primary-subtitle">此玲行云端魔方账户下有 {$ClientArea.index.host} 个实例可管理</div>
-      </div>
-      <div class="mdui-card-content">
-      
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=334">云服务器</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=356">应用盒</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=333">容器云</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=329">虚拟主机</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=361">域名</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=347">优惠通行证</a>
-      
-      </div>
-      <div class="mdui-card-actions">
-        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '此处仅支持管理玲行云端魔方控制台激活的产品。其他产品请前往玲行云端智控管理。'}">
-          <i class="mdui-icon material-icons">help</i>
-        </button>
-      </div>
-    </div>
-    
-    <br />
-    
-    <div class="mdui-card mdui-p-a-1">
-      <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title">新建魔方实例</div>
-        <div class="mdui-card-primary-subtitle">可在玲行云端魔方控制台新购实例</div>
-      </div>
-      <div class="mdui-card-content">
-      
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=7">云服务器</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=15">应用盒</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=13">容器云</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=2">虚拟主机</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=19">域名注册</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="#" mdui-tooltip="{content: '服务调整中'}" disabled>CDN</a><br />
-        <div class="mdui-typo-caption-opacity">寻找更多产品？请前往玲行云端 Consolify 了解。</div>
-      
-      </div>
-      <div class="mdui-card-actions">
-        <a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-blue-a400" href="/cart">查看全部</a>
-        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '此处订购产品仅限用于玲行云端魔方控制台'}">
-          <i class="mdui-icon material-icons">help</i>
-        </button>
-      </div>
-    </div>
-    
-    <br />
-    
-{else}
+{if $Userinfo.customs.4.value == '简洁表格'}
 
 <div class="mdui-row-xs-3">
       <div class="mdui-col">
@@ -489,6 +381,116 @@
   <br />
 
 
+
+
+{else}
+
+    <div class="mdui-card mdui-p-a-1">
+      <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">工作台桌面</div>
+        <div class="mdui-card-primary-subtitle">快速导航</div>
+      </div>
+      <div class="mdui-card-content">
+        <div class="mdui-typo-subheading">服务生态</div>
+        <a class="mdui-btn mdui-ripple" href="https://www.incloudify.com/zhcn/">玲行云端官网</a>
+        <div class="mdui-typo-subheading">容器云独立面板</div>
+        <a class="mdui-btn mdui-ripple" href="http://mcsm.incloudify.com/">MCSM 独立面板</a>
+        <a class="mdui-btn mdui-ripple" href="http://ptero.incloudify.com/">翼龙面板</a>
+        <div class="mdui-typo-subheading">其他用户中心</div>
+        <a class="mdui-btn mdui-ripple" href="https://console.incloudify.com/">Consolify 智控</a>
+        <a class="mdui-btn mdui-ripple" href="https://partner.incloudify.com/">玲行云端协作云用户中心</a>
+      </div>
+      <div class="mdui-card-actions">
+        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '自定义视图'}" onclick="mdui.snackbar({message: '魔方控制台暂不支持自定义视图。想要自定义工作台视图？Consolify 将支持！'});">
+          <i class="mdui-icon material-icons">create</i>
+        </button>
+      </div>
+    </div>
+    
+    <br />
+    
+    <div class="mdui-card mdui-p-a-1">
+      <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">已激活魔方实例</div>
+        <div class="mdui-card-primary-subtitle" id="totalActiveHostLable">此账户于玲行云端智简魔方控制台激活的产品</div>
+      </div>
+      <div class="mdui-card-content">
+      {if $ClientArea.index.host}
+        {foreach $ClientArea.index.host_nav as $list}
+            <a href="service?groupid={$list.id}" class="mdui-btn mdui-btn-raised mdui-ripple">
+              <span>
+                <i class="mdui-icon material-icons">audiotrack</i>
+                {$list.groupname}
+              </span>
+              <span>({$list.count}个实例)</span>
+            </a>
+            <script>totalActiveHost = totalActiveHost + {$list.count};</script>
+        {/foreach}
+        {else}
+        <div class="mdui-typo-caption-opacity">千里之行，始于足下。</div>
+        {/if}
+      
+      </div>
+      <div class="mdui-card-actions">
+        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '有的产品购买后不显示：可能是自动交付出了问题。一般等待片刻即可，您也可以选择发工单要求得到运维团队的帮助。'}">
+          <i class="mdui-icon material-icons">help</i>
+        </button>
+      </div>
+    </div>
+    
+    <br />
+    
+    
+    <div class="mdui-card mdui-p-a-1">
+      <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">管理魔方实例</div>
+        <div class="mdui-card-primary-subtitle">此玲行云端魔方账户下有 {$ClientArea.index.host} 个实例可管理</div>
+      </div>
+      <div class="mdui-card-content">
+      
+        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=334">云服务器</a>
+        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=356">应用盒</a>
+        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=333">容器云</a>
+        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=329">虚拟主机</a>
+        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=361">域名</a>
+        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=347">优惠通行证</a>
+      
+      </div>
+      <div class="mdui-card-actions">
+        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '此处仅支持管理玲行云端魔方控制台激活的产品。其他产品请前往玲行云端智控管理。'}">
+          <i class="mdui-icon material-icons">help</i>
+        </button>
+      </div>
+    </div>
+    
+    <br />
+    
+    <div class="mdui-card mdui-p-a-1">
+      <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">新建魔方实例</div>
+        <div class="mdui-card-primary-subtitle">可在玲行云端魔方控制台新购实例</div>
+      </div>
+      <div class="mdui-card-content">
+      
+        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=7">云服务器</a>
+        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=15">应用盒</a>
+        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=13">容器云</a>
+        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=2">虚拟主机</a>
+        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=19">域名注册</a>
+        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="#" mdui-tooltip="{content: '服务调整中'}" disabled>CDN</a><br />
+        <div class="mdui-typo-caption-opacity">寻找更多产品？请前往玲行云端 Consolify 了解。</div>
+      
+      </div>
+      <div class="mdui-card-actions">
+        <a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-blue-a400" href="/cart">查看全部</a>
+        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '此处订购产品仅限用于玲行云端魔方控制台'}">
+          <i class="mdui-icon material-icons">help</i>
+        </button>
+      </div>
+    </div>
+    
+    <br />
+    
 
 {/if}
      
@@ -640,6 +642,7 @@
         
       <a class="mdui-btn mdui-btn-block mdui-text-left" href="/supporttickets" target="_blank" mdui-tooltip="{content: '工单是高效的服务方式，提交工单后运维团队会帮助您解决问题'}"><i class="mdui-icon material-icons">border_color</i> 工单中心</a>
       <a class="mdui-btn mdui-btn-block mdui-text-left" href="https://www.incloudify.com/zhcn/docs/" target="_blank" mdui-tooltip="{content: '通过查阅官网文档，可以快速了解常见问题解答'}"><i class="mdui-icon material-icons">library_books</i> 文档中心</a>
+      <a class="mdui-btn mdui-btn-block mdui-text-left" href="https://forum.incloudify.com/" target="_blank" mdui-tooltip="{content: '玲行云端用户论坛'}"><i class="mdui-icon material-icons">assignment</i> 用户论坛</a>
       <a class="mdui-btn mdui-btn-block mdui-text-left" href="https://jq.qq.com/?_wv=1027&k=CTosGa6w" target="_blank" mdui-tooltip="{content: '点击可快速加群'}"><i class="mdui-icon material-icons">chat</i> 企鹅交流群</a>
       <div class="mdui-typo-caption-opacity">交流群号：580739538</div>
       
