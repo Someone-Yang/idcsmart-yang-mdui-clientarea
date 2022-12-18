@@ -2,7 +2,6 @@
 {include file="includes/tablestyle"}
 {include file="includes/pop"}
 
-
 <script>
 	$(function () {
 		// 状态筛选
@@ -80,24 +79,7 @@
         	    <div class="mdui-card mdui-p-a-2">
                   <div class="mdui-card-primary">
                     <div class="mdui-card-primary-title">
-                        {if $list.type == 'bthost'}
-                        Bthost 虚拟主机实例
-                        {elseif $list.type == 'easypanel'}
-                        EasyPanel 虚拟主机实例
-                        {else}
-                        虚拟主机实例(早期实例)
-                        {/if}
-                        
-                        {if $list.safe_pay == '是'}
-                            <button class="mdui-btn mdui-btn-icon mdui-text-color-green" mdui-tooltip="{content: '此产品已启用玲行云端“坏即赔”服务。当实例出现意外事故时，您可以获得最高100倍赔付。'}">
-                              <i class="mdui-icon material-icons">verified_user</i>
-                            </button>
-                        {else}
-                            <button class="mdui-btn mdui-btn-icon mdui-text-color-grey" mdui-tooltip="{content: '未检查到此产品启用玲行云端“坏即赔”权益。但是，您仍然可以享受玲行云端标准 SLA 协议保护。'}">
-                              <i class="mdui-icon material-icons">wb_cloudy</i>
-                            </button>
-                        {/if}
-                       
+                        云服务器实例                       
                     </div>
                     <div class="mdui-card-primary-subtitle mdui-text-truncate">{if $list.notes}{$list.notes}{else}无备注{/if} - {$list.productname}</div>
                   </div>
@@ -107,19 +89,29 @@
 					<span class="badge badge-pill font-size-12
 					status-{$list.domainstatus|strtolower}">{$Lang['domainstatus_select_'.strtolower($list.domainstatus)]}</span><br>
                     <span><i class="mdui-icon material-icons">apps</i> 产品 ID: {$list.id}</span><br>
-                    {if $list.type == 'bthost'}
-                        <span><i class="mdui-icon material-icons">location_on</i> 节点标识：{$list.location}</span><br>
-                        <span><i class="mdui-icon material-icons">folder</i> 空间：{$list.site_max}</span><br>
-                        <span><i class="mdui-icon material-icons">find_in_page</i> 数据库：{$list.sql_max}</span><br>
-                        <span><i class="mdui-icon material-icons">backup</i> 月流量：{$list.flow_max}</span><br>
-                        <span><i class="mdui-icon material-icons">arrow_upward</i> {$list.broadband_up} / <i class="mdui-icon material-icons">arrow_downward</i> {$list.broadband_down}</span><br>
-                    {elseif $list.type == 'easypanel'}
-                        <span><i class="mdui-icon material-icons">location_on</i> 节点标识：{$list.location}</span><br>
-                        <span><i class="mdui-icon material-icons">folder</i> 空间：{$list.web_quota}</span><br>
-                        <span><i class="mdui-icon material-icons">find_in_page</i> 数据库：{$list.db_quota}</span><br>
-                        <span><i class="mdui-icon material-icons">backup</i> 月流量：{$list.flow_limit}</span><br>
-                        <span><i class="mdui-icon material-icons">arrow_upward</i> {$list.broadband_up} / <i class="mdui-icon material-icons">arrow_downward</i> {$list.broadband_down}</span><br>
-                    {/if}
+                    
+                        <span><i class="mdui-icon material-icons">dns</i> 主 IP：
+                            {if $list.dedicatedip}
+                                {$list.dedicatedip}
+                            {else}
+                                无独立 IP
+                            {/if}
+                        </span><br>
+                        
+                        <span><i class="mdui-icon material-icons">save</i> 系统盘： {$list.system_disk_size}</span><br>
+                        <span><i class="mdui-icon material-icons">settings</i> 实例资源：vCPU {$list.cpu} / RAM {$list.memory}</span><br>
+                        <span><i class="mdui-icon material-icons">network_check</i> 宽带：{$list.bw}</span><br>
+                        
+                        <span><i class="mdui-icon material-icons">folder</i> 系统：
+                            {if $list.svg}
+								<img width="14" height="14" src="/upload/common/system/{$list.svg}.svg" alt="">
+							{else}
+								<img width="14" height="14" src="/upload/common/system/{$list.os_url|getOsSvg}.svg"
+									 alt="">
+							{/if}
+							{$list.os}
+						</span><br>
+                        
                     <span><i class="mdui-icon material-icons">access_time</i> 到期日期：{$list.nextduedate|date="Y-m-d"}</span>
                     
                   </div>
@@ -136,7 +128,7 @@
 {else}
 	<div class="mdui-card mdui-p-a-1">
       <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title">您尚未开通任何虚拟主机实例</div>
+        <div class="mdui-card-primary-title">您尚未开通任何云服务器实例</div>
       </div>
       <div class="mdui-card-content">
         <p>千里之行，始于足下。</p>
