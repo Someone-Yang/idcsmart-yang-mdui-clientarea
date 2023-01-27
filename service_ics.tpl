@@ -72,14 +72,20 @@
 
 
 {if $Service.list}
-    <div class="mdui-row-xs-3">
+    <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3">
     	{foreach $Service.list as $list}
     	    <div class="mdui-col">
     	    
         	    <div class="mdui-card mdui-p-a-2">
                   <div class="mdui-card-primary">
                     <div class="mdui-card-primary-title">
-                        云服务器实例                       
+                        云服务器实例
+                        {if $list.api_type == 'zjmf_api'}
+                            <button class="mdui-btn mdui-btn-icon mdui-text-color-blue" mdui-tooltip="{content: '这是一个玲行云端协作云实例。玲行云端协作云多个团队将共同帮助您维护实例。'}">
+                              <i class="mdui-icon material-icons">group</i>
+                            </button>
+                        {/if}
+                       
                     </div>
                     <div class="mdui-card-primary-subtitle mdui-text-truncate">{if $list.notes}{$list.notes}{else}无备注{/if} - {$list.productname}</div>
                   </div>
