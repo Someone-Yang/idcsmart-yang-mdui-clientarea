@@ -44,16 +44,107 @@
   var language={:json_encode($_LANG)};
   </script>
     
-    <title>{$Title} - 玲行云端魔方控制台（2022测试版）</title>
+    <title>{$Title} - 玲行云端魔方控制台</title>
   </head>
-  <body class="mdui-appbar-with-toolbar">
+  <body class="mdui-appbar-with-toolbar mdui-drawer-body-left">
+  
+  <div class="mdui-drawer mdui-color-white" id="left-drawer">
+            <ul class="mdui-list mdui-list-dense">
+            {if $Userinfo}
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                <a href="/" class="mdui-list-item-content">首页</a>
+              </li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">add</i>
+                <a href="/cart" class="mdui-list-item-content">新建实例</a>
+              </li>
+              <li class="mdui-subheader">魔方账户</li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">account_circle</i>
+                <a href="/details" class="mdui-list-item-content">我的账户</a>
+              </li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">security</i>
+                <a href="/security" class="mdui-list-item-content">安全设置</a>
+              </li>
+              
+              <li class="mdui-subheader">资产管理</li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">attach_money</i>
+                <a href="/addfunds" class="mdui-list-item-content">账户充值</a>
+              </li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">library_books</i>
+                <a href="/billing" class="mdui-list-item-content">交易账单</a>
+              </li>
+              
+              <li class="mdui-subheader">实例管理</li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons"></i>
+                <a href="/manage/ics" class="mdui-list-item-content">云服务器</a>
+              </li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons"></i>
+                <a href="/manage/vhost" class="mdui-list-item-content">虚拟主机</a>
+              </li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons"></i>
+                <a href="/manage/appbox" class="mdui-list-item-content">应用盒</a>
+              </li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons"></i>
+                <a href="/manage/container" class="mdui-list-item-content">容器云</a>
+              </li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons"></i>
+                <a href="/manage/domain" class="mdui-list-item-content">域名</a>
+              </li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons"></i>
+                <a href="/service?groupid=362" class="mdui-list-item-content">协作云实例</a>
+              </li>
+              
+              <li class="mdui-subheader">支持中心</li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">library_books</i>
+                <a href="https://www.incloudify.com/zhcn/docs/" class="mdui-list-item-content">服务文档</a>
+              </li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">assignment</i>
+                <a href="https://forum.incloudify.com/" class="mdui-list-item-content">用户论坛</a>
+              </li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">border_color</i>
+                <a href="/supporttickets" class="mdui-list-item-content">工单中心</a>
+              </li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">chat</i>
+                <a href="https://jq.qq.com/?_wv=1027&k=CTosGa6w" class="mdui-list-item-content">QQ 唠嗑群</a>
+              </li>
+            </ul>
+            {else}
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons">person_add</i>
+                <a href="/login" class="mdui-list-item-content">请先登录</a>
+              </li>
+              <li class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons"></i>
+                <a href="/register" class="mdui-list-item-content">或点此注册</a>
+              </li>
+            {/if}
+  </div>
+  
   <div class="mdui-appbar mdui-color-white mdui-appbar-fixed">
       <div class="mdui-toolbar mdui-color-theme">
-        <a href="https://smart.incloudify.com/" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '用户中心主页'}">
-          <i class="mdui-icon material-icons">home</i>
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '展开/隐藏侧边栏',position: 'right'}" mdui-drawer="{target: '#left-drawer'}">
+          <i class="mdui-icon material-icons">menu</i>
         </a>
-        <a href="https://smart.incloudify.com/" class="mdui-typo-headline">玲行云端</a>
-        <a href="javascript:;" class="mdui-typo-title">魔方控制台 - {$Title}</a>
+        <a href="javascript:history.back(-1);" class="mdui-btn mdui-btn-icon mdui-hidden-sm-down" mdui-tooltip="{content: '返回上一页'}">
+          <i class="mdui-icon material-icons">arrow_back</i>
+        </a>
+        <a href="https://smart.incloudify.com/" class="mdui-typo-headline">玲行云端魔方控制台</a>
+        <a href="javascript:;" class="mdui-typo-title mdui-hidden-sm-down">{$Title}</a>
         <div class="mdui-toolbar-spacer"></div>
         <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '显示/隐藏框架'}" onclick="mainappViewSwitch();">
           <i class="mdui-icon material-icons" id="mainappViewButton">visibility</i>
@@ -77,7 +168,7 @@
   </div>
   <style type="text/css">
 	body{
-		background: url("https://smart.incloudify.com/themes/clientarea/yang-mdui/imgs/bg.jpg") no-repeat center center fixed;
+		background: url("/themes/clientarea/yang-mdui/imgs/bg.jpg") no-repeat center center fixed;
                 -webkit-background-size: cover;
                 -o-background-size: cover;                
                 background-size: cover;
@@ -88,14 +179,16 @@
     function mainappViewSwitch () {
     if (mainappView == true) {
         document.getElementById('yangMduiMainapp').style.visibility = 'hidden';
+        document.getElementById('left-drawer').style.visibility = 'hidden';
         document.getElementById('mainappViewButton').innerHTML = 'visibility_off';
         mdui.snackbar({
-          message: '背景拍摄于《原神》璃月轻策庄北面。山峦起伏，流水荡漾，远眺可观群玉阁。愿天下人之梦如飞鸟遨游于广袤无垠的天空。',
+          message: '背景拍摄于《原神》。愿您自行探索。',
           position: 'left-bottom',
           timeout: 6000,
         });
     } else {
         document.getElementById('yangMduiMainapp').style.visibility = '';
+        document.getElementById('left-drawer').style.visibility = '';
         document.getElementById('mainappViewButton').innerHTML = 'visibility';
     }
     mainappView = !mainappView;
