@@ -5,7 +5,7 @@
 
 {if $ClientArea.index.host}
 {else}
-<div class="mdui-card mdui-p-a-1">
+<div class="mdui-card mdui-p-a-1 mdui-hoverable">
   <div class="mdui-card-primary">
     <div class="mdui-card-primary-title">欢迎新用户</div>
   </div>
@@ -13,7 +13,7 @@
     <div class="mdui-typo-headline">欢迎加入玲行云端！您已可用一个<span class="mdui-text-color-red">无门槛 5元 优惠码</span>。现在下单任何产品立减5元！</div><br>
     <div>您的新人优惠码：<span class="mdui-typo-display-1 mdui-text-color-green">helloworld</span></div>
     <p>使用方法：新建实例时，在购物车下方输入此优惠码并应用。</p>
-    <div class="mdui-typo-caption">优惠码仅限新用户。如果您购置了白嫖产品，此新用户优惠码将自动过期。</div>
+    <div class="mdui-typo-caption">优惠码仅限新用户。如果您购置了白嫖产品，此新用户优惠码将自动过期。除非另有说明，此优惠码不对基础优惠产品或协作云产品有效。</div>
   </div>
   <div class="mdui-card-actions">
     <a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-blue-a400" href="/cart"><i class="mdui-icon material-icons">play_circle_outline</i> 选择并新建一个实例，使用优惠码</a>
@@ -28,7 +28,7 @@
 {if $Userinfo.customs.3.value == '隐藏'}
 {else}
 <!-- 引导开始 -->
-    <div class="mdui-card mdui-p-a-1 mdui-color-light-blue-50">
+    <div class="mdui-card mdui-p-a-1 mdui-color-light-blue-50 mdui-hoverable">
               <div class="mdui-card-primary">
                 <div class="mdui-card-primary-title"><i class="mdui-icon material-icons">assistant</i> 快速引导</div>
                 <div class="mdui-card-primary-subtitle">使用 2 分钟快速上手。</div>
@@ -126,7 +126,7 @@
                 <span class="mdui-text-color-green"><i class="mdui-icon material-icons">check_circle</i> 您已存储 {$Userinfo.user.credit} 元到账户余额，可用于在玲行云端魔方控制台消费。当然，您也可以随时申请退款！</span>
                 {else}
                 <span class="mdui-text-color-orange"><i class="mdui-icon material-icons mdui-text-color-orange-a400">assignment_late</i> 您可以对您的账户进行充值，用于快速完成在线产品交付。</span>
-                <a class="mdui-btn mdui-btn-raised" href="/addfunds" target="_blank" mdui-tooltip="{content: '氪金金金钱钱钱'}">打开氪金页面 <i class="mdui-icon material-icons">arrow_forward</i></a>
+                <a class="mdui-btn mdui-btn-raised" href="/addfunds" target="_blank" mdui-tooltip="{content: '访问充值中心'}">打开充值界面 <i class="mdui-icon material-icons">arrow_forward</i></a>
               {/if}
               </p>
               
@@ -264,13 +264,13 @@
 <!-- 引导结束 -->
 {/if}
 
-<div class="mdui-col-xs-8">
+<div class="mdui-col-xs-12 mdui-col-sm-8">
 {if $Userinfo.customs.4.value == '简洁表格'}
 
 <div class="mdui-row-xs-3">
       <div class="mdui-col">
           
-          <div class="mdui-card mdui-p-a-1">
+          <div class="mdui-card mdui-p-a-1 mdui-hoverable">
               <div class="mdui-card-primary">
                 <div class="mdui-card-primary-title">云服务器</div>
                 <div class="mdui-card-primary-subtitle">ICS / DVPS</div>
@@ -290,7 +290,7 @@
       
        <div class="mdui-col">
           
-          <div class="mdui-card mdui-p-a-1">
+          <div class="mdui-card mdui-p-a-1 mdui-hoverable">
               <div class="mdui-card-primary">
                 <div class="mdui-card-primary-title">应用盒</div>
                 <div class="mdui-card-primary-subtitle">App Box</div>
@@ -310,7 +310,7 @@
       
       <div class="mdui-col">
           
-          <div class="mdui-card mdui-p-a-1">
+          <div class="mdui-card mdui-p-a-1 mdui-hoverable">
               <div class="mdui-card-primary">
                 <div class="mdui-card-primary-title">容器云</div>
                 <div class="mdui-card-primary-subtitle">Container</div>
@@ -330,7 +330,7 @@
       
       <div class="mdui-col">
           
-          <div class="mdui-card mdui-p-a-1">
+          <div class="mdui-card mdui-p-a-1 mdui-hoverable">
               <div class="mdui-card-primary">
                 <div class="mdui-card-primary-title">
                     虚拟主机
@@ -338,12 +338,6 @@
                 <div class="mdui-card-primary-subtitle">Vhost</div>
               </div>
               <div class="mdui-card-content">
-                <div class="mdui-chip mdui-color-red-a200">
-                  <span class="mdui-chip-icon mdui-color-red-a700">
-                    新
-                  </span>
-                  <span class="mdui-chip-title">全新体验</span>
-                </div>
                 <p>无需过多运维知识、即开即用的网站搭建专用服务器。<p>
               </div>
               <div class="mdui-card-actions mdui-card-actions-stacked">
@@ -358,7 +352,7 @@
       
       <div class="mdui-col">
           
-          <div class="mdui-card mdui-p-a-1">
+          <div class="mdui-card mdui-p-a-1 mdui-hoverable">
               <div class="mdui-card-primary">
                 <div class="mdui-card-primary-title">域名</div>
                 <div class="mdui-card-primary-subtitle">Domain</div>
@@ -384,174 +378,143 @@
 
 
 {else}
-
-    <div class="mdui-card mdui-p-a-1">
-      <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title">工作台桌面</div>
-        <div class="mdui-card-primary-subtitle">快速导航</div>
-      </div>
-      <div class="mdui-card-content">
-        <div class="mdui-typo-subheading">服务生态</div>
-        <a class="mdui-btn mdui-ripple" href="https://www.incloudify.com/zhcn/">玲行云端官网</a>
-        <div class="mdui-typo-subheading">容器云独立面板</div>
-        <a class="mdui-btn mdui-ripple" href="http://mcsm.incloudify.com/">MCSM 独立面板</a>
-        <a class="mdui-btn mdui-ripple" href="http://ptero.incloudify.com/">翼龙面板</a>
-        <div class="mdui-typo-subheading">其他用户中心</div>
-        <a class="mdui-btn mdui-ripple" href="https://console.incloudify.com/">Consolify 智控</a>
-        <a class="mdui-btn mdui-ripple" href="https://partner.incloudify.com/">玲行云端协作云用户中心</a>
-      </div>
-      <div class="mdui-card-actions">
-        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '自定义视图'}" onclick="mdui.snackbar({message: '魔方控制台暂不支持自定义视图。想要自定义工作台视图？Consolify 将支持！'});">
-          <i class="mdui-icon material-icons">create</i>
-        </button>
-      </div>
+    <div class="mdui-row mdui-p-a-1">
+        <div class="mdui-card mdui-p-a-1 mdui-hoverable">
+          <div class="mdui-card-primary">
+            <div class="mdui-card-primary-title">已激活魔方实例</div>
+            <div class="mdui-card-primary-subtitle" id="totalActiveHostLable">此账户于玲行云端智简魔方控制台激活的产品</div>
+          </div>
+          <div class="mdui-card-content">
+          {if $ClientArea.index.host}
+            {foreach $ClientArea.index.host_nav as $list}
+                <a href="service?groupid={$list.id}" class="mdui-btn mdui-btn-raised mdui-ripple">
+                  <span>
+                    {$list.groupname}
+                  </span>
+                  <span>({$list.count}个实例)</span>
+                </a>
+                <script>totalActiveHost = totalActiveHost + {$list.count};</script>
+            {/foreach}
+            {else}
+            <div class="mdui-typo-caption-opacity">千里之行，始于足下。</div>
+            {/if}
+          
+          </div>
+          <div class="mdui-card-actions">
+            <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '有的产品购买后不显示：可能是自动交付出了问题。一般等待片刻即可，您也可以选择发工单要求得到运维团队的帮助。'}">
+              <i class="mdui-icon material-icons">help</i>
+            </button>
+          </div>
+        </div>
     </div>
     
-    <br />
-    
-    <div class="mdui-card mdui-p-a-1">
-      <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title">已激活魔方实例</div>
-        <div class="mdui-card-primary-subtitle" id="totalActiveHostLable">此账户于玲行云端智简魔方控制台激活的产品</div>
-      </div>
-      <div class="mdui-card-content">
-      {if $ClientArea.index.host}
-        {foreach $ClientArea.index.host_nav as $list}
-            <a href="service?groupid={$list.id}" class="mdui-btn mdui-btn-raised mdui-ripple">
-              <span>
-                <i class="mdui-icon material-icons">audiotrack</i>
-                {$list.groupname}
-              </span>
-              <span>({$list.count}个实例)</span>
-            </a>
-            <script>totalActiveHost = totalActiveHost + {$list.count};</script>
-        {/foreach}
-        {else}
-        <div class="mdui-typo-caption-opacity">千里之行，始于足下。</div>
-        {/if}
-      
-      </div>
-      <div class="mdui-card-actions">
-        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '有的产品购买后不显示：可能是自动交付出了问题。一般等待片刻即可，您也可以选择发工单要求得到运维团队的帮助。'}">
-          <i class="mdui-icon material-icons">help</i>
-        </button>
-      </div>
+    <div class="mdui-row mdui-p-a-1">
+        <div class="mdui-card mdui-p-a-1 mdui-hoverable">
+          <div class="mdui-card-primary">
+            <div class="mdui-card-primary-title">管理魔方实例</div>
+            <div class="mdui-card-primary-subtitle">此玲行云端魔方账户下有 {$ClientArea.index.host} 个实例可管理</div>
+          </div>
+          <div class="mdui-card-content">
+          
+            <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=334">云服务器</a>
+            <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=356">应用盒</a>
+            <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=333">容器云</a>
+            <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=329">虚拟主机</a>
+            <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=361">域名</a>
+            <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=347">优惠通行证</a>
+          
+          </div>
+          <div class="mdui-card-actions">
+            <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '此处仅支持管理玲行云端魔方控制台激活的产品。其他产品请前往玲行云端智控管理。'}">
+              <i class="mdui-icon material-icons">help</i>
+            </button>
+          </div>
+        </div>
     </div>
     
-    <br />
-    
-    
-    <div class="mdui-card mdui-p-a-1">
-      <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title">管理魔方实例</div>
-        <div class="mdui-card-primary-subtitle">此玲行云端魔方账户下有 {$ClientArea.index.host} 个实例可管理</div>
-      </div>
-      <div class="mdui-card-content">
-      
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=334">云服务器</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=356">应用盒</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=333">容器云</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=329">虚拟主机</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=361">域名</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/service?groupid=347">优惠通行证</a>
-      
-      </div>
-      <div class="mdui-card-actions">
-        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '此处仅支持管理玲行云端魔方控制台激活的产品。其他产品请前往玲行云端智控管理。'}">
-          <i class="mdui-icon material-icons">help</i>
-        </button>
-      </div>
+    <div class="mdui-row mdui-p-a-1">
+        <div class="mdui-card mdui-p-a-1 mdui-hoverable">
+          <div class="mdui-card-primary">
+            <div class="mdui-card-primary-title">新建魔方实例</div>
+            <div class="mdui-card-primary-subtitle">可在玲行云端魔方控制台新购实例</div>
+          </div>
+          <div class="mdui-card-content">
+          
+            <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=7">云服务器</a>
+            <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=15">应用盒</a>
+            <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=13">容器云</a>
+            <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=2">虚拟主机</a>
+            <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=19">域名注册</a>
+            <a class="mdui-btn mdui-btn-raised mdui-ripple" href="#" mdui-tooltip="{content: '服务调整中'}" disabled>CDN</a><br />
+            <div class="mdui-typo-caption-opacity">寻找更多产品？请前往玲行云端 Consolify 了解。</div>
+          
+          </div>
+          <div class="mdui-card-actions">
+            <a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-blue-a400" href="/cart">查看全部</a>
+            <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '此处订购产品仅限用于玲行云端魔方控制台'}">
+              <i class="mdui-icon material-icons">help</i>
+            </button>
+          </div>
+        </div>
     </div>
-    
-    <br />
-    
-    <div class="mdui-card mdui-p-a-1">
-      <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title">新建魔方实例</div>
-        <div class="mdui-card-primary-subtitle">可在玲行云端魔方控制台新购实例</div>
-      </div>
-      <div class="mdui-card-content">
-      
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=7">云服务器</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=15">应用盒</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=13">容器云</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=2">虚拟主机</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/cart?fid=19">域名注册</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="#" mdui-tooltip="{content: '服务调整中'}" disabled>CDN</a><br />
-        <div class="mdui-typo-caption-opacity">寻找更多产品？请前往玲行云端 Consolify 了解。</div>
-      
-      </div>
-      <div class="mdui-card-actions">
-        <a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-blue-a400" href="/cart">查看全部</a>
-        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '此处订购产品仅限用于玲行云端魔方控制台'}">
-          <i class="mdui-icon material-icons">help</i>
-        </button>
-      </div>
-    </div>
-    
-    <br />
     
 
 {/if}
-     
-    <div class="mdui-card mdui-p-a-1">
-      <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title">公告</div>
-        <div class="mdui-card-primary-subtitle">适用于玲行云端魔方控制台的公告</div>
-      </div>
-      <div class="mdui-card-content">
-      
-          <div class="user-center_notice h100p">
-            <ul class="user-center_notice_ul pl-0">
-              {if $ClientArea.index.news}
-              {foreach $ClientArea.index.news as $list}
-              <li class="user-center_notice_item">
-                <span class="notice_item_time text-black-50">{$list.push_time|date="Y-m-d H:i"}</span>
-                <a href="newsview?id={$list.id}" class="notice_item_title">{$list.title}</a>
-              </li>
-              {/foreach}
-              {else}
-              <tr>
-                <td colspan="2">
-                  <div class="no-data">{$Lang.nothing}</div>
-                </td>
-              </tr>
-              {/if}
-            </ul>
+    <div class="mdui-row mdui-p-a-1">
+        <div class="mdui-card mdui-p-a-1 mdui-hoverable">
+          <div class="mdui-card-primary">
+            <div class="mdui-card-primary-title">公告</div>
+            <div class="mdui-card-primary-subtitle">适用于玲行云端魔方控制台的公告</div>
           </div>
-      
-      </div>
-      <div class="mdui-card-actions">
-        <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/news">查看全部</a>
-      </div>
+          <div class="mdui-card-content">
+          
+              <div class="user-center_notice h100p">
+                <ul class="user-center_notice_ul pl-0">
+                  {if $ClientArea.index.news}
+                  {foreach $ClientArea.index.news as $list}
+                  <li class="user-center_notice_item">
+                    <span class="notice_item_time text-black-50">{$list.push_time|date="Y-m-d H:i"}</span>
+                    <a href="newsview?id={$list.id}" class="notice_item_title">{$list.title}</a>
+                  </li>
+                  {/foreach}
+                  {else}
+                  <tr>
+                    <td colspan="2">
+                      <div class="no-data">{$Lang.nothing}</div>
+                    </td>
+                  </tr>
+                  {/if}
+                </ul>
+              </div>
+          
+          </div>
+          <div class="mdui-card-actions">
+            <a class="mdui-btn mdui-btn-raised mdui-ripple" href="/news">查看全部</a>
+          </div>
+        </div>
     </div>
     
-    <br />
-    
-    <div class="mdui-card mdui-p-a-1">
-      <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title">近期消息</div>
-        <div class="mdui-card-primary-subtitle">或许这里会出现什么...</div>
-      </div>
-      <div class="mdui-card-content">
-      
-          {$CustomDepot.cilentareanotice}
-      
-      </div>
-      <div class="mdui-card-actions">
-        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '说白了，这里就是管理员玩梗的地方。'}">
-          <i class="mdui-icon material-icons">help</i>
-        </button>
-      </div>
+    <div class="mdui-row mdui-p-a-1">
+        <div class="mdui-card mdui-p-a-1 mdui-hoverable">
+          <div class="mdui-card-primary">
+            <div class="mdui-card-primary-title">近期消息</div>
+            <div class="mdui-card-primary-subtitle">或许这里会出现什么...</div>
+          </div>
+          <div class="mdui-card-content">
+          
+              {$CustomDepot.cilentareanotice}
+          
+          </div>
+        </div>
     </div>
     
-    
-  </div>
+</div>
   
   
   
-  <div class="mdui-col-xs-4">
-    <div class="mdui-card mdui-p-a-1">
+<div class="mdui-col-xs-12 mdui-col-sm-4">
+<div class="mdui-row mdui-p-a-1">
+    <div class="mdui-card mdui-p-a-1 mdui-hoverable">
       <div class="mdui-card-primary">
         <div class="mdui-card-primary-title"><i class="mdui-icon material-icons">account_circle</i> 账户信息</div>
       </div>
@@ -575,9 +538,10 @@
       </div>
     </div>
     
-    <br />
+</div>
     
-    <div class="mdui-card mdui-p-a-1">
+<div class="mdui-row mdui-p-a-1">
+    <div class="mdui-card mdui-p-a-1 mdui-hoverable">
       <div class="mdui-card-primary">
         <div class="mdui-card-primary-title"><i class="mdui-icon material-icons">credit_card</i> 账户资产</div>
       </div>
@@ -594,9 +558,10 @@
       </div>
     </div>
     
-    <br />
+</div>
      
-    <div class="mdui-card mdui-p-a-1">
+<div class="mdui-row mdui-p-a-1">
+    <div class="mdui-card mdui-p-a-1 mdui-hoverable">
       <div class="mdui-card-primary">
         <div class="mdui-card-primary-title"><i class="mdui-icon material-icons">today</i> 待办事项</div>
       </div>
@@ -623,18 +588,13 @@
         
         <div class="mdui-btn mdui-btn-block mdui-text-left" disabled><i class="mdui-icon material-icons">check_circle</i> 暂无未读站内信。</div>
         <div class="mdui-btn mdui-btn-block mdui-text-left" disabled><i class="mdui-icon material-icons">check_circle</i> 无自定义待办。前面的区域，以后再来探索吧。</div>
-      
-      </div>
-      <div class="mdui-card-actions">
-        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '自定义待办'}" onclick="mdui.snackbar({message: '魔方控制台暂不支持自定义待办。想要自定义待办清单？行云 Teamify 和 Consolify 已经支持！'});">
-          <i class="mdui-icon material-icons">create</i>
-        </button>
       </div>
     </div>
     
-    <br />
+</div>
     
-    <div class="mdui-card mdui-p-a-1">
+<div class="mdui-row mdui-p-a-1">
+    <div class="mdui-card mdui-p-a-1 mdui-hoverable">
       <div class="mdui-card-primary">
         <div class="mdui-card-primary-title"><i class="mdui-icon material-icons">build</i> 服务支持</div>
       </div>
@@ -648,29 +608,9 @@
       
       
       </div>
-      <div class="mdui-card-actions">
-        <button class="mdui-btn mdui-btn-icon mdui-float-right" mdui-tooltip="{content: '你知道吗，51.4%的问题可通过自行查阅产品文档解决嗷！'}">
-          <i class="mdui-icon material-icons">help</i>
-        </button>
-      </div>
     </div>
+</div>
     
-    <br />
-    
-    <div class="mdui-card mdui-p-a-1">
-      <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title"><i class="mdui-icon material-icons">local_florist</i> 关于</div>
-      </div>
-      <div class="mdui-card-content">
-        我们尽力成为值得您信赖的优秀的云服务提供者。不打价格战，脚踏实地。<br />
-        智简魔方控制台保持最基本的服务，现在我们正在 Consolify 上努力。那将是一个全新的、前后端分离的、高度自由化的云服务控制台。敬请期待。
-      
-      </div>
-      <div class="mdui-card-actions">
-        <a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent" href="https://github.com/Incloudify/consolify-frontend">Consolify 前端开源仓库</a>
-        <a class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent" href="https://console.incloudify.com/">智控预览站</a>
-      </div>
-    </div>
     
   </div>
 </div>
